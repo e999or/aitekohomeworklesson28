@@ -4,13 +4,12 @@ import org.testng.Assert;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class CarBrendPage extends AbstractPage {
+public class CarBrendPage extends PostCount {
 
-    FactoryAvtoPage factoryAvtoPage = new FactoryAvtoPage();
     String checkButton;
 
-    public void checkButtonCarBrendPage() {
+    public void checkButtonCarBP() {
        checkButton = $x("//span[@class='ButtonWithLoader__content']").getAttribute("innerText").replaceAll("\\D+","");
-       Assert.assertEquals(checkButton, factoryAvtoPage.countPostsCarBrend);
+       Assert.assertEquals(checkButton, PostCount.getPostC());
     }
 }

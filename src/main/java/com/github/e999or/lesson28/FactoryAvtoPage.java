@@ -6,27 +6,24 @@ import org.testng.Assert;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class FactoryAvtoPage extends AbstractPage {
+public class FactoryAvtoPage extends PostCount {
+
     String checkButton;
-    String countPostsCarBrend;
     String carBrandName;
 
-
-    public FactoryAvtoPage checkButtonContentFactoryAvtoPage() throws InterruptedException {
-        checkButton =$x("//span[@class='ButtonWithLoader__content']").getAttribute("innerText").replaceAll("\\D+","");
-        String s = checkButton;
-        System.out.println("cbut="+s+" test" + countPosts);
-        Assert.assertEquals(s, countPosts);
+    public FactoryAvtoPage checkButtonFactoryAP() {
+        checkButton = $x("//span[@class='ButtonWithLoader__content']").getAttribute("innerText").replaceAll("\\D+", "");
+        Assert.assertEquals(checkButton, PostCount.getPostC());
         return this;
     }
 
-    public FactoryAvtoPage checkPostFactoryAvtoPage(String carBrand) {
-        countPostsCarBrend = $x("//div/a[text()[contains(.,'" + carBrand + "')]]/following::div").getAttribute("innerText");
+    public FactoryAvtoPage checkPostFactoryAP(String carBrand) {
+        PostCount.getINST().setINST($x("//div/a[text()[contains(.,'" + carBrand + "')]]/following::div").getAttribute("innerText"));
         this.carBrandName = carBrand;
         return this;
     }
 
-    public FactoryAvtoPage openPageCarBrend() {
+    public FactoryAvtoPage openPageCB() {
         $(By.linkText(carBrandName)).click();
         return this;
     }

@@ -15,12 +15,12 @@ public class BspStep {
 
     @Дано("пользователь вводит в адресную строку браузера название сайта.")
     public void open() {
-        mainPage.openAvtoMainPage();
+        mainPage.openAvtoMP();
     }
 
     @Когда("переход осуществлен, проверяем название страницы {string}.")
     public void checkNamePage(String title) {
-        mainPage.chekTitleMainPage(title);
+        mainPage.chekTitleMP(title);
     }
 
     @Тогда("Сохранить количество объявлений, отображаемых перед названием {string}.")
@@ -30,26 +30,26 @@ public class BspStep {
 
     @Тогда("Перейти на страницу с объявлениям производителя автомобилей из п2.")
     public void clickFactoryAvtoPage() {
-        mainPage.clickFactoryAvtoPage();
+        mainPage.clickFactoryAP();
     }
 
     @Когда("Переход осуществлен. Отображается кнопка с текстом, содержащим количество объявлений из п2.")
-    public void checkButtonContent() throws InterruptedException {
-        factoryAvtoPage.checkButtonContentFactoryAvtoPage();
+    public void checkButtonContent() {
+        factoryAvtoPage.checkButtonFactoryAP();
     }
 
     @Тогда("Сохранить количество объявлений {string}")
     public void checkPost(String carBrend) {
-        factoryAvtoPage.checkPostFactoryAvtoPage(carBrend);
+        factoryAvtoPage.checkPostFactoryAP(carBrend);
     }
 
     @Когда("Перейти на страницу марки из п4")
     public void openPageCarBrend() {
-        factoryAvtoPage.openPageCarBrend();
+        factoryAvtoPage.openPageCB();
     }
 
     @Тогда("Переход осуществлен. Отображается кнопка с текстом, содержащим количество объявлений модели из п4.")
     public void checkButtonCarBrendPage() {
-        carBrendPage.checkButtonCarBrendPage();
+        carBrendPage.checkButtonCarBP();
     }
 }
